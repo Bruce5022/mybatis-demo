@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.mybatis.step01.UserMapper">
+    <!-- 1.如果接口方法就一个参数,这里不用写,可以直接取值 -->
+    <select id="selectUser" resultType="com.sky.mybatis.step01.User">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.id = #{id}
+  </select>
+
+    <!-- 2.多个参数的情况下
+     直接where a.id = #{id} and phone= #{phone}执行结果:
+     Invalid bound statement (not found): com.sky.mybatis.step01.UserMapper.selectUserByPhone
+     同样:User selectUserByPhone(@Param("id") Integer id,@Param("phone") String phone)也是报错
+     Invalid bound statement (not found): com.sky.mybatis.step01.UserMapper.selectUserByPhone
+
+
+     -->
+    <select id="selectUserByPhone" resultType="com.sky.mybatis.step01.User">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.id = #{param1} and phone= #{param2}
+  </select>
+
+
+
+    <select id="searchUsers" resultType="com.sky.mybatis.step01.User">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a
+  </select>
+</mapper>
