@@ -12,15 +12,28 @@
      直接where a.id = #{id} and phone= #{phone}执行结果:
      Parameter 'id' not found. Available parameters are [arg1, arg0, param1, param2]
      -->
-    <select id="selectUserByPhone" resultType="com.sky.mybatis.step01.User">
+    <select id="selectUserByPhone" resultType="user">
     select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.id = #{param1} and phone= #{param2}
   </select>
 
-    <select id="selectUserByMap" resultType="com.sky.mybatis.step01.User">
+    <select id="selectUserByMap" resultType="user">
     select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.id = #{id} and phone= #{phone}
   </select>
 
-    <select id="searchUsers" resultType="com.sky.mybatis.step01.User">
+    <select id="searchUsers" resultType="user">
     select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a
+  </select>
+
+    <select id="searchUserCodeLike" resultType="user">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.usercode like #{id}
+  </select>
+
+    <select id="selectUserWithMap" resultType="Map">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.id = #{id}
+  </select>
+
+    <!--Map<String,User> searchUserCodeLikeWithMap(String code);-->
+    <select id="searchUserCodeLikeWithMap" resultType="user">
+    select a.id,a._create_time createtime,a.nickname,a.usercode,a.phone from sys_user a where a.usercode like #{code}
   </select>
 </mapper>
