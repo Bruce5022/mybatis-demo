@@ -2,6 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+MyBatis提供的功能,接口与配置文件可以动态绑定;
+namespace:名称空间;指定为接口的全类名;
+id:唯一标识;select标签的id与接口文件中的方法名绑定;
+#{id}:从传递过来的参数中取出id值
+
+-->
 <mapper namespace="com.sky.mybatis.mapper.PersonMapper">
     <select id="findById" resultType="com.sky.mybatis.model.Person">
     select * from test_user a where a.id = #{id}

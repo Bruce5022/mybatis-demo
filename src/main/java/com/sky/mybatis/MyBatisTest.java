@@ -10,6 +10,12 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 1.SqlSession代表和数据库的一次会话,用完必须关闭;和connection一样,都是非线程安全的;每次使用都应该获取新的对象;不能放在全局共享的成员变量中;
+ * 2.mapper接口没有实现类,但MyBatis会为这个对象生成一个代理对象;下面传入一个类型,返回的也是这个类型的实例,将接口和xml文件绑定到一起,产生代理对象:
+ *  PersonMapper mapper = session.getMapper(PersonMapper.class);
+ *
+ */
 public class MyBatisTest {
 
     public static void main(String[] args) throws Exception {
