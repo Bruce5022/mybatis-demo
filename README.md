@@ -1,7 +1,7 @@
 # MyBatis入门例子
-##1.项目中引入Jar包:mybatis-x.x.x.jar##
+## 1.项目中引入Jar包:mybatis-x.x.x.jar
 
-##2.构建 SqlSessionFactory
+## 2.构建 SqlSessionFactory
 每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而
 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先定制的 Configuration 的实例构建出 SqlSessionFactory 的实例。<br/>
 基于XML:
@@ -20,7 +20,7 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confi
 ```
 注意该例中，configuration 添加了一个映射器类（mapper class）。映射器类是 Java 类，它们包含 SQL 映射语句的注解从而避免依赖 XML 文件。不过，由于 Java 注解的一些限制以及某些 MyBatis 映射的复杂性，要使用大多数高级映射（比如：嵌套联合映射），仍然需要使用 XML 配置。有鉴于此，如果存在一个同名 XML 配置文件，MyBatis 会自动查找并加载它（在这个例子中，基于类路径和 BlogMapper.class 的类名，会加载 BlogMapper.xml）。
 
-##3.从 SqlSessionFactory 中获取 SqlSession
+## 3.从 SqlSessionFactory 中获取 SqlSession
 方式1:
 ```
 try (SqlSession session = sqlSessionFactory.openSession()) {
@@ -35,7 +35,7 @@ try (SqlSession session = sqlSessionFactory.openSession()) {
 }
 ```
 
-##4.准备映射文件  配置全局文件
+## 4.准备映射文件  配置全局文件
 映射文件:
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -72,7 +72,7 @@ try (SqlSession session = sqlSessionFactory.openSession()) {
 </configuration>
 ```
 
-##4.测试代码
+## 5.测试代码
 测试1:
 ```
 // 1.根据XML文件(全局配置文件)构建SqlSessionFactory对象
