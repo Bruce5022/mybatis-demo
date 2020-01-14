@@ -1,5 +1,5 @@
 # MyBatis入门例子
-##1.项目中引入Jar包:mybatis-x.x.x.jar
+##1.项目中引入Jar包:mybatis-x.x.x.jar##
 
 ##2.构建 SqlSessionFactory
 每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而
